@@ -4,12 +4,12 @@ from __future__ import annotations
 import argparse, csv, datetime as dt, json, re, shlex, sys
 from collections import Counter
 from pathlib import Path
-ZSH = re.compile(r"^:\\s+(\\d+):\\d+;")
+ZSH = re.compile(r"^:\s+(\d+):\d+;")
 
 def parse_history(text: str) -> list[tuple[str, int | None]]:
     events=[]; stamp=None
     for raw in text.splitlines():
-        line=raw.rstrip("\\n")
+        line=raw.rstrip("\n")
         match=ZSH.match(line)
         if match:
             stamp=int(match.group(1)); line=line[match.end():]
