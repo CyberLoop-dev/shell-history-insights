@@ -1,0 +1,6 @@
+[project]
+name = "shell-history-insights"
+version = "1.0.0"
+description = "Privacy-first local shell history analytics"
+requires-python = ">=3.10"
+dependencies = []
